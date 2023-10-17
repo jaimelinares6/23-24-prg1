@@ -179,7 +179,7 @@ class Tarjetas {
             numeroPorAdivinar=numeroPorAdivinar+numero1;
         }
 
-        System.out.println("El numero pensado es "+numeroPorAdivinar);
+        System.out.println("El numero que has pensado es "+numeroPorAdivinar);
 
     }
 }
