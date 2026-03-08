@@ -4,14 +4,16 @@ class Primero {
         int entregado=400;
         int precio=232;
         int vuelta= entregado-precio;
-        int pendiente;
-        int bill100;
-        int bill50;
-        int bill20;
-        int bill10;
-        int bill5;
-        int coin2;
-        int coin1;
+        
+        int[] pendiente = {vuelta};
+
+        procesarDenominacion(pendiente, "billetes de 100", 100);
+        procesarDenominacion(pendiente, "billetes de 50", 50);
+        procesarDenominacion(pendiente, "billetes de 20", 20);
+        procesarDenominacion(pendiente, "billetes de 10", 10);
+        procesarDenominacion(pendiente, "billetes de 5", 5);
+        procesarDenominacion(pendiente, "monedas de 2", 2);
+        procesarDenominacion(pendiente, "monedas de 1", 1);
 
         System.out.println("El precio a pagar son " +precio+ " euros");
         System.out.println("Se ha entregado " +entregado+ " euros");
@@ -19,41 +21,15 @@ class Primero {
         System.out.println("La vuelta es " + vuelta);
         System.out.println("--------------------------------------------------");
 
-        bill100= vuelta/100;
-        pendiente=vuelta%100;
-        System.out.println("Se devolverán "+bill100+" billetes de 100");
-        System.out.println("Quedan por pagar "+pendiente+ "euros");
-
-        bill50= pendiente/50;
-        pendiente=pendiente%50;
-        System.out.println("Se devolverán "+bill50+" billetes de 50");
-        System.out.println("Quedan por pagar "+pendiente+ "euros");
-
-        bill20= pendiente/20;
-        pendiente=pendiente%20;
-        System.out.println("Se devolverán "+bill20+" billetes de 20");
-        System.out.println("Quedan por pagar "+pendiente+ "euros");
-
-        bill10= pendiente/10;
-        pendiente=pendiente%10;
-        System.out.println("Se devolverán "+bill10+" billetes de 10");
-        System.out.println("Quedan por pagar "+pendiente+ "euros");
-
-        bill5= pendiente/5;
-        pendiente=pendiente%5;
-        System.out.println("Se devolverán "+bill5+" billetes de 5");
-        System.out.println("Quedan por pagar "+pendiente+ "euros");
-
-        coin2= pendiente/2;
-        pendiente=pendiente%2;
-        System.out.println("Se devolveran "+coin2+" monedas de 2 euros");
-        System.out.println("Qudan por pagar "+pendiente+ "euros");
-        
-        coin1= pendiente/1;
-        pendiente=pendiente%1;
-        System.out.println("Se devolveran "+coin1+" monedas de 1 euros");
-        System.out.println("Qudan por pagar "+pendiente+ "euros");
-
-
     }
+
+    private static void procesarDenominacion(int[] pendiente, String denominacion, int valor) {
+    int cantidad = pendiente[0] / valor;
+    pendiente[0] = pendiente[0] % valor;
+    
+    if (cantidad > 0) {
+        System.out.println("Se devolverán " + cantidad + " " + denominacion);
+        System.out.println("Quedan por pagar " + pendiente[0] + " euros");
+    }
+}
 } 
